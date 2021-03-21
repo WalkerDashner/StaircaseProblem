@@ -19,29 +19,20 @@ output = []
 
 
 #function for finding 2 number combonations for int
-def split(start,tiles,shift):
+def split(start,tiles):
   out = []
   for i in range(start,math.ceil(tiles/2)):
-    if(shift!=[]):
-      out.append(shift+[i,tiles-i])
-    else:
-      out.append([i,tiles-i])
+    out.append([i,tiles-i])
   return out
 
 
-#function for returning popped list
-def returnpopped(myList):
-  myList.pop()
-  return myList
 
   
 
 
-output = (split(1,input,[]))
+output = (split(1,input))
 splitPrevAppend = []
 final = final+len(output)
-#print(output)
-print("----------------------")
 
 
 #loop through every # of possible steps
@@ -50,22 +41,20 @@ for j in range(2):
   for i in range(len(output)):
     #split last element of output 
     #make sure to set start limit to 2nd last element of output
-    splitPrev = split(output[i][len(output[i])-2]+1,output[i][len(output[i])-1],returnpopped(output[i]))
+    splitPrev = split(output[i][len(output[i])-2]+1,output[i][len(output[i])-1])
 
     if(splitPrev != []):
-      #print(splitPrev)
       final = final + len(splitPrev)
     splitPrevAppend = splitPrevAppend + splitPrev
 
-  print("----------------------")
   output=splitPrevAppend
 
 
 
 #Print Answer
-print("\n\n----------------------\nFINAL VALUE IS: " + str(final) + "\n----------------------\n")
+print("\n\n----------------------\nFINAL VALUE IS: " + str(final) + "\n----------------------\n\n")
 
-# timer  
+# time
 time_elapsed = datetime.now() - start_time
 print('Time elapsed is {}'.format(time_elapsed))
 
