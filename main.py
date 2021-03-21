@@ -12,7 +12,7 @@ from datetime import datetime
 
 # variables
 start_time = datetime.now()
-input = 12
+input = 20
 output = []
 
 
@@ -20,10 +20,11 @@ output = []
 def split(start,tiles,shift):
   out = []
   for i in range(start,round(tiles/2)):
-    out.append([i,tiles-i])
+   
     if(shift!=[]):
-      for j in out:
-        out.insert(0,shift)
+      out.append(shift+[i,tiles-i])
+    else:
+      out.append([i,tiles-i])
   return out
 
 
@@ -46,7 +47,7 @@ for j in range(2):
   for i in range(len(output)):
     #split last element of output 
     #make sure to set start limit to 2nd last element of output
-    splitPrev = split(output[i][len(output[i])-2]+1,output[i][len(output[i])-1],[])
+    splitPrev = split(output[i][len(output[i])-2]+1,output[i][len(output[i])-1],returnpopped(output[i]))
 
     print(splitPrev)
     splitPrevAppend = splitPrevAppend + splitPrev
