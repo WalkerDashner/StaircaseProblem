@@ -13,6 +13,7 @@ from datetime import datetime
 # variables
 start_time = datetime.now()
 input = 20
+final = 0
 output = []
 
 
@@ -52,12 +53,19 @@ for j in range(2):
 
     if(splitPrev != []):
       print(splitPrev)
+      final = final + len(splitPrev)
     splitPrevAppend = splitPrevAppend + splitPrev
 
   print("----------------------")
   output=splitPrevAppend
 
 
+
+#Temporary solution to last combo not being added
+final = final + 1
+
+#Print Answer
+print("\n\n----------------------\nFINAL VALUE IS: " + str(final) + "\n----------------------")
 
 # timer  
 time_elapsed = datetime.now() - start_time
