@@ -39,6 +39,7 @@ def returnpopped(myList):
 output = (split(1,input,[]))
 splitPrevAppend = []
 print(output)
+print("----------------------")
 
 
 #loop through every # of possible steps
@@ -49,7 +50,8 @@ for j in range(2):
     #make sure to set start limit to 2nd last element of output
     splitPrev = split(output[i][len(output[i])-2]+1,output[i][len(output[i])-1],returnpopped(output[i]))
 
-    print(splitPrev)
+    if(splitPrev != []):
+      print(splitPrev)
     splitPrevAppend = splitPrevAppend + splitPrev
 
   print("----------------------")
